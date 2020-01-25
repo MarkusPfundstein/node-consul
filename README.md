@@ -13,19 +13,19 @@ Setup small network of consul agents and test how we can query them
 
 Installing consul is as easy as downloading binary from https://www.consul.io/downloads.html and putting it into some $PATH aware dir.
 
-Start consul server with name consul1 (-bootstrap because its the very first server. Subsequent ones can omit it).
+On instance1: Start consul server with name consul1 (-bootstrap because its the very first server. Subsequent ones can omit it).
 
 `consul agent -server -bootstrap -data-dir /tmp/consul -node consul1`
 
-Start agent with name agent1 and connect to cluster where consul1 is server (assume ip of consul1 is 172.31.39.35 - you need to know at least 1 ip)
+On instance2: Start agent with name agent1 and connect to cluster where consul1 is server (assume ip of consul1 is 172.31.39.35 - you need to know at least 1 ip)
 
 `consul agent -node agent1 -join 172.31.39.35 -data-dir /tmp/consul`
 
-Resolve agent1 ip via dns on 8600
+On any instance: Resolve agent1 ip via dns on 8600
 
 `dig @127.0.0.1 -p 8600 agent1.node.consul`
 
-Query node consul1:
+On any instance: Query node consul1:
 
 `curl $(dig +short @127.0.0.1 -p 8600 consul1.node.consul):<PORT>/<PATH>`
 
