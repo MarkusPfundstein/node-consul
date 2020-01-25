@@ -1,11 +1,9 @@
 # Experiments related to Node & Consul
 
 ## Hardware: 
-2 ubuntu machines on aws with consul installed and ports 8301 and 8300 open and ports 30000-45000 open for services
-Tip: Make custom security group
+2 ubuntu machines on aws with consul installed and ports 8301 (consul-join) and 8300 (consul-rpc) open and ports 30000-45000 open for services
 
-Always run at least 3 consul servers. Best is uneven number.
-Ports: 8301 (consul-join), 8300 (consul-rpc)
+Tip: Make custom security group in aws
 
 Query all kinds 
 
