@@ -1,0 +1,12 @@
+{
+  "verify_incoming": true,
+  "verify_outgoing": true,
+  "verify_server_hostname": true,
+  "ca_file": "consul.d/consul-agent-ca.pem",
+  "cert_file": "consul.d/dc1-server-consul-0.pem",
+  "key_file": "consul.d/dc1-server-consul-0-key.pem",
+  "ports": {
+    "http": -1,
+    "https": 8501
+  }
+}
